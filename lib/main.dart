@@ -27,24 +27,24 @@ class _LongPressCalendarState extends State<LongPressCalendar> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: SfCalendar(
-        view: CalendarView.month,
-        onLongPress: longPressed,
-        allowedViews: <CalendarView>[
-          CalendarView.day,
-          CalendarView.week,
-          CalendarView.workWeek,
-          CalendarView.month,
-          CalendarView.timelineDay,
-          CalendarView.timelineWeek,
-          CalendarView.timelineWorkWeek,
-          CalendarView.timelineMonth,
-          CalendarView.schedule
-        ],
-      ),
-    )
-        // This trailing comma makes auto-formatting nicer for build methods.
-        );
+          child: SfCalendar(
+            view: CalendarView.month,
+            onLongPress: longPressed,
+            allowedViews: <CalendarView>[
+              CalendarView.day,
+              CalendarView.week,
+              CalendarView.workWeek,
+              CalendarView.month,
+              CalendarView.timelineDay,
+              CalendarView.timelineWeek,
+              CalendarView.timelineWorkWeek,
+              CalendarView.timelineMonth,
+              CalendarView.schedule
+            ],
+          ),
+        )
+      // This trailing comma makes auto-formatting nicer for build methods.
+    );
   }
 
   void longPressed(CalendarLongPressDetails calendarLongPressDetails) {
@@ -56,7 +56,7 @@ class _LongPressCalendarState extends State<LongPressCalendar> {
             content: Container(
                 child: new Text("Date cell " +
                     DateFormat('dd-MMM-yyyy hh:mm a')
-                        .format(calendarLongPressDetails.date)
+                        .format(calendarLongPressDetails.date!)
                         .toString() +
                     " has been long pressed")),
             actions: <Widget>[
