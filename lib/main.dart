@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-void main() => runApp(LongPressDetails());
+void main() => runApp(const LongPressDetails());
 
 class LongPressDetails extends StatelessWidget {
+  const LongPressDetails({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: LongPressCalendar(),
     );
@@ -17,6 +18,8 @@ class LongPressDetails extends StatelessWidget {
 }
 
 class LongPressCalendar extends StatefulWidget {
+  const LongPressCalendar({super.key});
+
   @override
   _LongPressCalendarState createState() => _LongPressCalendarState();
 }
@@ -30,7 +33,7 @@ class _LongPressCalendarState extends State<LongPressCalendar> {
           child: SfCalendar(
             view: CalendarView.month,
             onLongPress: longPressed,
-            allowedViews: <CalendarView>[
+            allowedViews: const <CalendarView>[
               CalendarView.day,
               CalendarView.week,
               CalendarView.workWeek,
@@ -52,19 +55,16 @@ class _LongPressCalendarState extends State<LongPressCalendar> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Container(child: new Text(" Long pressed")),
+            title: Container(child: Text(" Long pressed")),
             content: Container(
-                child: new Text("Date cell " +
-                    DateFormat('dd-MMM-yyyy hh:mm a')
-                        .format(calendarLongPressDetails.date!)
-                        .toString() +
-                    " has been long pressed")),
+                child: Text("Date cell ${DateFormat('dd-MMM-yyyy hh:mm a')
+                        .format(calendarLongPressDetails.date!)} has been long pressed")),
             actions: <Widget>[
-              new FlatButton(
+              TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: new Text('close'))
+                  child: const Text('close'))
             ],
           );
         });
