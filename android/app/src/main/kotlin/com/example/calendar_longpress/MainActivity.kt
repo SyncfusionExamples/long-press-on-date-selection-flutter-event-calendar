@@ -1,4 +1,4 @@
-package com.example.flutter_longpress
+package com.example.calendar_longpress
 
 import io.flutter.embedding.android.FlutterActivity
 
